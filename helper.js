@@ -1,3 +1,20 @@
+// Event handler for form submission
+const onSubmit = function(evt) {
+  evt.preventDefault();
+
+  const inputEl = document.querySelector('#guess-input');
+  const guess = parseInt(inputEl.value);
+
+  //Check if the guess is valid
+  //min, max, winninNum global variables
+  const isValid = checkValidity(guess, min, max);
+  if (!isValid) return;
+
+  // Check the guess and act depending on if the guess is correct or wrong
+  checkGuess(guess, winningNum, inputEl);
+};
+
+
 // returns true if the entered number is valid :not left empty, not smaller than min,
 // not greater than max; otherwise false
 const checkValidity = function(val, min, max) {

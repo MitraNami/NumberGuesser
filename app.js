@@ -29,19 +29,3 @@ gameWrapperEl.addEventListener('mousedown', reload);
 // Guess form submission
 const formEl = document.querySelector('div#game form');
 formEl.addEventListener('submit', onSubmit);
-
-function onSubmit(evt) {
-  evt.preventDefault();
-
-  const inputEl = document.querySelector('#guess-input');
-  const guess = parseInt(inputEl.value);
-  
-  // Check if the guess is valid
-  const isValid = checkValidity(guess, min, max);
-  if (!isValid) return;
-
-  // Check the guess and act depending on if the guess is correct or wrong
-  checkGuess(guess, winningNum, inputEl);
-
-};
-
