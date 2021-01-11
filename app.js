@@ -14,7 +14,44 @@ const min = 1,
       winningNum = 2;
 
 
-const minNum = document.querySelector('.min-num');
-const maxNum = document.querySelector('.max-num');
-minNum.textContent = min;
-maxNum.textContent = max;
+const minNumEl = document.querySelector('.min-num');
+const maxNumEl = document.querySelector('.max-num');
+minNumEl.textContent = min;
+maxNumEl.textContent = max;
+
+
+// Guess submission
+const formEl = document.querySelector('div#game form');
+formEl.addEventListener('submit', onSubmit);
+
+function onSubmit(evt) {
+  evt.preventDefault();
+
+  const inputEl = document.querySelector('#guess-input');
+  const guess = parseInt(inputEl.value);
+  
+  // Checks if the guess is valid
+  const isValid = checkValidity(guess, min, max);
+  if (!isValid) return;
+
+  
+};
+
+
+// returns true if the entered number is valid :not left empty, not smaller than min,
+// not greater than max; otherwise false
+const checkValidity = function(val, min, max) {
+  if (val < min || val > max || isNaN(val)) {
+    setMessage(`Enter a number between ${min} and ${max}`, 'red');
+    return false;
+  }
+  return true;
+};
+
+
+// Set message in the given color
+const setMessage = function(msg, color) {
+  const messageEl = document.querySelector('.message');
+  messageEl.textContent = msg;
+  messageEl.style.color = color;
+};
