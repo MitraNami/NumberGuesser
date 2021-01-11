@@ -21,7 +21,7 @@ minNumEl.textContent = min;
 maxNumEl.textContent = max;
 
 
-// Guess submission
+// Guess form submission
 const formEl = document.querySelector('div#game form');
 formEl.addEventListener('submit', onSubmit);
 
@@ -31,25 +31,12 @@ function onSubmit(evt) {
   const inputEl = document.querySelector('#guess-input');
   const guess = parseInt(inputEl.value);
   
-  // Checks if the guess is valid
+  // Check if the guess is valid
   const isValid = checkValidity(guess, min, max);
   if (!isValid) return;
 
-  // Check if the guess is correct or wrong
-  if (guess === winningNum) {
-    //Game finished - you won
-    gameFinished(true, winningNum, inputEl);
-  } else {
-    //Wrong guess
-    guessesLeft -= 1;
-    if (guessesLeft === 0) {
-      //Game finished - Game over
-      gameFinished(false, winningNum, inputEl);
+  // Check the guess and act depending on if the guess is correct or wrong
+  checkGuess(guess, winningNum, inputEl);
 
-    } else {
-      //Wrong guess - but can still play
-      gameContinues(inputEl,guess, guessesLeft);
-    }
-  }
 };
 

@@ -39,3 +39,24 @@ const gameContinues = function(inputEl,guess, guessesLeft) {
   //Clear the input
   inputEl.value = '';
 };
+
+
+// Check the guess and act depending on if the guess is correct or wrong
+const checkGuess = function(guess, winningNum, inputEl) {
+  // Check if the guess is correct or wrong
+  if (guess === winningNum) {
+    //Game finished - you won
+    gameFinished(true, winningNum, inputEl);
+  } else {
+    //Wrong guess
+    guessesLeft -= 1; //global variable
+    if (guessesLeft === 0) {
+      //Game finished - Game over
+      gameFinished(false, winningNum, inputEl);
+
+    } else {
+      //Wrong guess - but can still play
+      gameContinues(inputEl,guess, guessesLeft);
+    }
+  }
+};
