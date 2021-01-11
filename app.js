@@ -34,7 +34,17 @@ function onSubmit(evt) {
   const isValid = checkValidity(guess, min, max);
   if (!isValid) return;
 
-  
+  // Check if the guess is correct
+  if (guess === winningNum) {
+    // correct guess
+    //Disable input
+    inputEl.disabled = true;
+    //Change border color to green
+    inputEl.style.borderColor = 'green';
+    setMessage(`${winningNum} is correct, YOU WON!`, 'green');
+  } else {
+    
+  }
 };
 
 
