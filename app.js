@@ -35,23 +35,16 @@ function onSubmit(evt) {
   const isValid = checkValidity(guess, min, max);
   if (!isValid) return;
 
-  // Check if the guess is correct
+  // Check if the guess is correct or wrong
   if (guess === winningNum) {
-    // correct guess
-    //Disable input
-    inputEl.disabled = true;
-    //Change border color to green
-    inputEl.style.borderColor = 'green';
-    setMessage(`${winningNum} is correct, YOU WON!`, 'green');
+    //Game finished - you won
+    gameFinished(true, winningNum, inputEl);
   } else {
-    //wrong guess
+    //Wrong guess
     guessesLeft -= 1;
     if (guessesLeft === 0) {
-      //Game Over
-      //Disable the input
-      inputEl.disabled = true;
-      inputEl.style.borderColor = 'red';
-      setMessage(`Game Over! The correct number was ${winningNum}`, 'red');
+      //Game finished - Game over
+      gameFinished(false, winningNum, inputEl);
 
     } else {
       //Wrong guess but can still play
