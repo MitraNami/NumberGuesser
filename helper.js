@@ -29,3 +29,13 @@ const gameFinished = function(victory, winningNum, inputEl) {
     setMessage(`Game Over! The correct number was ${winningNum}`, 'red');
 };
 
+
+//This function should be called when user's guess was wrong but
+// there are still guesses left
+const gameContinues = function(inputEl,guess, guessesLeft) {
+  //change the border color to red
+  inputEl.style.borderColor = 'red';
+  setMessage(`${guess} is not correct, ${guessesLeft} guess${guessesLeft > 1 ? 'es' : ''} left!`, 'red');
+  //Clear the input
+  inputEl.value = '';
+};

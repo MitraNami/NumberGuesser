@@ -47,12 +47,8 @@ function onSubmit(evt) {
       gameFinished(false, winningNum, inputEl);
 
     } else {
-      //Wrong guess but can still play
-      //change the border color to red
-      inputEl.style.borderColor = 'red';
-      setMessage(`${guess} is not correct, ${guessesLeft} guess${guessesLeft > 1 ? 'es' : ''} left!`, 'red');
-      //Clear the input
-      inputEl.value = '';
+      //Wrong guess - but can still play
+      gameContinues(inputEl,guess, guessesLeft);
     }
   }
 };
