@@ -13,25 +13,28 @@
   <body class="bg-dark">
     <div class="container">
       <div class="card text-center mt-4">
-        <div class="card-title">
-          <h1>Number Guesser</h1>
-        </div>
-        <div id="game" class="card-body">
-          <form>
-            <div class="form-group">
-              <label for="guess-input">Guess a number between <span class="min-num"></span> and <span class="max-num"></span></label>
-              <div class="row justify-content-center">
-                <div class="m-1">
-                  <input class="form-control" type="number" id="guess-input" placeholder="Enter your guess...">
-                </div>
-                <div class="m-1">
-                  <input type="submit" class="btn btn-primary" id="guess-btn" value="submit">
+        <img class="card-img-top" src="img/bg.jpg" style="opacity: .3;" alt="numbers">
+        <div class="card-img-overlay">
+          <div class="card-title">
+            <h1>Number Guesser</h1>
+          </div>
+          <div id="game" class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="guess-input">Guess a number between <span class="min-num"></span> and <span class="max-num"></span></label>
+                <div class="row justify-content-center">
+                  <div class="m-1">
+                    <input class="form-control" type="number" id="guess-input" placeholder="Enter your guess...">
+                  </div>
+                  <div class="m-1">
+                    <input type="submit" class="btn btn-primary" id="guess-btn" value="submit">
+                  </div>
                 </div>
               </div>
-            </div>
-          </form>
-          <!-- it witll contain a message about the validity of the entered number -->
-          <p class="message"></p>
+            </form>
+            <!-- it witll contain a message about the validity of the entered number -->
+            <p class="message"></p>
+          </div>
         </div>
       </div>
     </div>
