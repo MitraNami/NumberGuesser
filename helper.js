@@ -81,3 +81,9 @@ const reload = function(evt) {
   }
   
 };
+
+
+// returns a random number between the given min and max, inclusive
+const getRandomNum = function(min, max) {
+  return Math.floor((max - min + 1) * Math.random() + min);
+};

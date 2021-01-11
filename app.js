@@ -11,7 +11,7 @@ Game Function:
 // Game values
 const min = 1,
       max = 10,
-      winningNum = 2;
+      winningNum = getRandomNum(min, max);
 let guessesLeft = 3;
 
 
