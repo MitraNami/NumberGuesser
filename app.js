@@ -12,6 +12,7 @@ Game Function:
 const min = 1,
       max = 10,
       winningNum = 2;
+let guessesLeft = 3;
 
 
 const minNumEl = document.querySelector('.min-num');
@@ -43,7 +44,23 @@ function onSubmit(evt) {
     inputEl.style.borderColor = 'green';
     setMessage(`${winningNum} is correct, YOU WON!`, 'green');
   } else {
-    
+    //wrong guess
+    guessesLeft -= 1;
+    if (guessesLeft === 0) {
+      //Game Over
+      //Disable the input
+      inputEl.disabled = true;
+      inputEl.style.borderColor = 'red';
+      setMessage(`Game Over! The correct number was ${winningNum}`, 'red');
+
+    } else {
+      //Wrong guess but can still play
+      //change the border color to red
+      inputEl.style.borderColor = 'red';
+      setMessage(`${guess} is not correct, ${guessesLeft} guess${guessesLeft > 1 ? 'es' : ''} left!`, 'red');
+      //Clear the input
+      inputEl.value = '';
+    }
   }
 };
 
