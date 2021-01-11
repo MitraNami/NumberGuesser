@@ -27,6 +27,10 @@ const gameFinished = function(victory, winningNum, inputEl) {
   victory ? 
     setMessage(`${winningNum} is correct, YOU WON!`, 'green') :
     setMessage(`Game Over! The correct number was ${winningNum}`, 'red');
+
+  //Play again?
+  playAgain();
+  
 };
 
 
@@ -59,4 +63,21 @@ const checkGuess = function(guess, winningNum, inputEl) {
       gameContinues(inputEl,guess, guessesLeft);
     }
   }
+};
+
+
+const playAgain = function() {
+  const guessBtnEl = document.querySelector('#guess-btn');
+  guessBtnEl.value = 'Play Again';
+  guessBtnEl.classList.add('play-again');
+};
+
+
+//Play again event handler
+const reload = function(evt) {
+  //we're handling the case in which the button is 'Play Again'
+  if (evt.target.classList.contains('play-again')) {
+    window.location.reload();
+  }
+  
 };

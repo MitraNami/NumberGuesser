@@ -20,6 +20,11 @@ const maxNumEl = document.querySelector('.max-num');
 minNumEl.textContent = min;
 maxNumEl.textContent = max;
 
+// Play again event listener
+const gameWrapperEl = document.querySelector('#game');
+gameWrapperEl.addEventListener('mousedown', reload);
+
+
 
 // Guess form submission
 const formEl = document.querySelector('div#game form');
